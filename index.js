@@ -1,19 +1,12 @@
-const dasha = require("@dasha.ai/sdk");
-const fs = require("fs");
+import dasha from "@dasha.ai/sdk";
+import fs from "fs";
 
 async function main() {
   const app = await dasha.deploy("./app");
 
-  app.connectionProvider = async (conv) =>
-    conv.input.phone === "chat"
-      ? dasha.chat.connect(await dasha.chat.createConsoleChat())
-      : dasha.sip.connect(new dasha.sip.Endpoint("default"));
-
-  app.ttsDispatcher = () => "dasha";
-
   await app.start();
 
-  const conv = app.createConversation({ phone: process.argv[2] ?? "" });
+  const conv = app.createConversation({ phone: "+918917640775" });
 
   if (conv.input.phone !== "chat") conv.on("transcription", console.log);
 

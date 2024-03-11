@@ -2,15 +2,17 @@
   "name": "dasha-first-app",
   "version": "0.1.0",
   "license": "MIT",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "devDependencies": {
     "@dasha.ai/cli": "^0.4.3",
     "prettier": "^2.2.1"
   },
   "dependencies": {
-    "@dasha.ai/sdk": "^0.6.5"
+    "@dasha.ai/sdk": "^0.6.7",
+    "express": "^4.18.3"
   }
 }
